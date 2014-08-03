@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    	<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>@yield('titulo')</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+       
+		{{ HTML::style('css/main.css') }}
+ 
+        {{ HTML::style('css/slick.css') }}
+		{{ HTML::style('css/monokai.min.css') }}
+		{{ HTML::style('css/style.css') }}
+        
+
+        <!--PLUGIN -->
+		{{ HTML::style('css/bootstrap/bootstrap.min.css') }}
+        
+    </head>
+    <body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>            
+            <!-- slider -->
+            <section class="sliderdepto">
+
+                <!--div id="segundomenu">
+                  <span id="mobile-menu-button"><a href="#menu"></a></span>
+                  <nav class="navsecond">
+                    <ul>
+                      <li><a href=""></a>Inicio</li>
+                      <li><a href=""></a>Dos</li>
+                    </ul>
+                  </nav>
+                </div-->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol> 
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        @yield('slider')             
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>          
+               <div class="titulSlider">
+                   <h2>Para Conocer y Senir</h2>
+               </div>
+               <div class="logo">
+                   <img src="img/logo.png">
+               </div>   
+            </section>
+
+            <!-- Menu -->
+            <div class="degra">            
+                <nav class="navbar navbar-default menumain menudepto navbar-fixed-top" role="navigation">
+                  <!-- MENU MOVIL -->
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Nicaragua</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>                
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                      <li class="nica">
+                        <a href="{{ URL::to('/') }}">nicaragua</a>                        
+                        <span><img src="img/guardabarranco.png"></span>
+                      </li>
+                      <li class="about dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">departamentos <span class="caret"></span></a> 
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ URL::to('jinotega') }}">Jinotega</a></li>
+                            <li><a href="#">Carazo</a></li>
+                            <li><a href="#">Matagalpa</a></li>
+                            <li><a href="#">Esteli</a></li>
+                        </ul>                 
+                      </li>
+                      <li class="explo">
+                        <a href="">Explorar</a>                
+                      </li>
+                      <li class="plani">
+                        <a href="">Acerca de</a>                  
+                      </li>
+                      <li class="len">
+                        <a href="{{ URL::to('blog') }}">Blog</a>                   
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+            </div> 
+        </header>
+       <!-- End Menu -->  
+
+       <section class="informacion infodep" >
+            <div class="row">
+                <!-- informacion izquierda -->
+                <article class="col-md-3 degrawhite infoiz">
+                    <div>
+                        @yield('informacionizquierda')                      
+                    </div>
+                </article>
+                <!-- end informacion izquierda -->
+
+                <!--informacion central -->
+                <div class="col-md-9 centermod">
+                    <div class="row">
+                        <article class="col-md-9 degrawhite infocenter">               
+                            <div>
+                                <h1 class="titul">Historia</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>   
+                            <div>
+                                <h1 class="titul">Cultura</h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>                   
+                        </article>
+
+
+                        <!-- informacion derecha -->
+                        <article class="col-md-3 anuncios">
+                            <div class="anunciostitul">
+                                <h2>Necesitas Ayuda?</h2>             
+                            </div>
+                            <div class="row">
+                                @yield('anuncios')                              
+                            </div>
+                        </article>
+                        <!-- end informacion derecha -->
+                    </div>
+                    <!--end row informacion Central -->     
+
+                    <!-- calendario --> 
+                    <div class="calendario">
+                        @yield('calendario')                        
+                    </div> 
+                    <!--end calendario -->
+                </div>
+                <!--end informacion central -->  
+            </div>
+            <!-- end row -->
+       </section>
+       <!--end infromacion -->  
+
+
+
+       <footer>
+            derechos reservados
+        </footer>
+
+
+
+        {{ HTML::script('js/vendor/jquery-1.10.2.min.js') }}
+        {{ HTML::script('js/plugins.js') }}
+        {{ HTML::script('js/vendor/bootstrap.min.js') }}
+        {{ HTML::script('js/main.js') }}
+
+        {{ HTML::script('js/slick.js') }}
+        {{ HTML::script('js/scripts.js') }}
+ 
+    </body>
+</html>   

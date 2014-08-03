@@ -67,6 +67,9 @@ body {
   margin: 0px !important;
   float: none !important;
 }
+.navbar-nav .open a {
+  background-color: transparent !important;
+}
 /*.col-md-2, .col-md-6, .col-md-7, .col-md-3
   padding 0 !important*/
 .menumain {
@@ -154,7 +157,7 @@ body {
   text-align: center;
 }
 .infoiz div {
-  margin: 10px;
+  margin: 5px;
 }
 .infoiz iframe {
   margin-top: 20px;
@@ -259,7 +262,31 @@ footer {
   font-weight: bold;
   height: 4em;
   text-align: center;
+/*  DEPARTAMENTOS */
 }
+.sliderdepto .titulSlider h2 {
+  text-align: center;
+}
+.sliderdepto .logo img {
+  top: 28px;
+  padding: 0;
+}
+.infodep .centermod .col-md-9 {
+  margin: 0;
+  padding: 0;
+}
+.infodep .centermod .infocenter {
+  padding: 0px 20px;
+}
+.infodep .centermod .titul {
+  text-align: center;
+  font-family: titulslide;
+  border-bottom: 2px solid #808080;
+}
+.infodep .centermod p {
+  text-align: justify;
+}
+/*  RESPONSIVE*/
 @media screen and (min-width: 768px) {
   .titulSlider h2 {
     font-size: 2.5em;
@@ -270,7 +297,24 @@ footer {
   }
   .menumain ul li a {
     font-size: 1.5em;
-    padding: 20px 15px;
+    padding: 20px 13px;
+  }
+  .menumain ul .dropdown ul {
+    margin: 0;
+    padding: 0;
+  }
+  .menumain ul .dropdown .dropdown-menu {
+    border: 0px transparent !important;
+    width: 100px;
+    left: 69px;
+    background-color: rgba(235,192,17,0.5);
+  }
+  .menumain ul .dropdown .dropdown-menu li a {
+    padding: 10px 13px;
+    font-size: 1em;
+  }
+  .menumain ul .dropdown .dropdown-menu li a:hover {
+    color: #008000 !important;
   }
   .menumain .nica img {
     height: 80px;
@@ -281,6 +325,17 @@ footer {
     font-size: 2.5em;
     text-align: center;
   }
+  .sliderdepto .titulSlider h2 {
+    text-align: center;
+    top: 60px;
+  }
+  .sliderdepto .logo img {
+    top: 70px;
+    padding: 0;
+  }
+  .sliderdepto .titulSlideimg {
+    top: 70%;
+  }
 }
 @media (min-width: 1020px) {
   .titulSlideimg {
@@ -288,7 +343,10 @@ footer {
   }
   .menumain ul li a {
     font-size: 2em;
-    padding: 20px 20px;
+    padding: 20px 17px;
+  }
+  .menumain ul .dropdown .dropdown-menu {
+    width: 77%;
   }
   .centermod .anuncios {
     padding: 0;
@@ -302,6 +360,10 @@ footer {
   .cuadrado a {
     font-size: 1.7em;
   }
+  .informacion .col-md-3 {
+    margin: 0;
+    padding: 0;
+  }
 }
 @media (min-width: 1200px) {
   .titulSlider h2 {
@@ -313,7 +375,10 @@ footer {
   }
   .menumain ul li a {
     font-size: 2em;
-    padding: 20px 38px;
+    padding: 20px 35px;
+  }
+  .menumain ul .dropdown .dropdown-menu {
+    width: 79.8%;
   }
   .menumain .nica img {
     height: 110px;
@@ -326,7 +391,7 @@ footer {
   }
   .menumain ul li a {
     font-size: 2em;
-    padding: 20px 45px;
+    padding: 20px 41px;
   }
   .menumain .nica img {
     height: 120px;
@@ -338,12 +403,15 @@ footer {
 @media (min-width: 1350px) {
   .menumain ul li a {
     font-size: 2em;
-    padding: 20px 50px;
+    padding: 20px 45px;
+  }
+  .menumain ul .dropdown .dropdown-menu {
+    width: 82%;
   }
 }
 @media (min-width: 1400px) {
   .menumain ul li a {
     font-size: 2em;
-    padding: 20px 55px;
+    padding: 20px 52px;
   }
 }

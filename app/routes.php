@@ -21,6 +21,10 @@ Route::get('blog', function(){
 	return View::make('blog.blog', array( 'articulos' => $articulos));
 });
 
+Route::get('jinotega', function(){
+	return View::make('departamentos.jinotega');
+});
+
 
 
 

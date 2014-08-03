@@ -75,11 +75,17 @@
 	              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav">
 	                  <li class="nica">
-	                    <a href="">nicaragua</a>	                    
+	                    <a href="#">nicaragua</a>	                    
 	                    <span><img src="img/guardabarranco.png"></span>
 	                  </li>
-	                  <li class="about">
-	                    <a href="">departamento</a>                   
+	                  <li class="about dropdown">
+	                    <a href="" class="dropdown-toggle" data-toggle="dropdown">departamentos <span class="caret"></span></a> 
+	                    <ul class="dropdown-menu" role="menu">
+	                    	<li><a href="{{ URL::to('jinotega') }}">Jinotega</a></li>
+	                    	<li><a href="#">Carazo</a></li>
+	                    	<li><a href="#">Matagalpa</a></li>
+	                    	<li><a href="#">Esteli</a></li>
+	                    </ul>                 
 	                  </li>
 	                  <li class="explo">
 	                    <a href="">Explorar</a>                
@@ -152,7 +158,7 @@
 			              	
             			</div>     
             			<div class="col-md-4">
-              				<h2>Linead Aereas</h2>
+              				<h2>Lineas Aereas</h2>
                				<div class="cuadradoinfo"></div>
             			</div>
             			<div class="col-md-4">

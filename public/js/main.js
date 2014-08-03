@@ -10,10 +10,15 @@ function primera(){
 		}
 	
 	});	
-	
-	tamSlider();
 
-	$(window).stellar();
+	$('#mobile-menu-button').on('click', function(event) {
+	  event.preventDefault();
+	  $(this).toggleClass('active');
+	  $('#segundomenu  .navsecond').slideToggle("fast");
+	});
+
+		
+	tamSlider();	
 }
 
 function tamSlider(){
