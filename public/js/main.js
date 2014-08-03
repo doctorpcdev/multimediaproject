@@ -6,7 +6,7 @@ function primera(){
 		if($(window).width() > 1024){
 			tamSlider();
 		}else{
-			 $('.slider').css({'height':'auto'});					
+			 $('.slider').css({'height': 350});					
 		}
 	
 	});	
@@ -18,7 +18,7 @@ function primera(){
 
 function tamSlider(){
 	if($(window).width() < 1024){
-		 $('.slider').css({'height':'auto'});		
+		 $('.slider').css({'height': 350});		
 	}else{
 		$('.slider').css({'height': $(window).height() -85});	
 	}	

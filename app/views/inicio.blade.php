@@ -61,20 +61,21 @@
 
 @section('anuncios')
 	<div class="col-md-7">
-	    <div class="cuadrado nica">
-	    	<h2>Hoteles</h2>
+	    <div class="cuadrado nica col-xs-3 col-md-12">
+	    	<a href="">Hoteles</a>
 	    </div>
-		<div class="cuadrado about">
-			<h2>Restaurantes</h2>
+		<div class="cuadrado about col-xs-3 col-md-12">
+			<a href="">Restaurantes</a>
 		</div>
-			<div class="cuadrado explo">
-			<h2>Traslado</h2>
+		<div class="cuadrado explo col-xs-3 col-md-12">
+			<a href="">Traslado</a>
 		</div>
-			<div class="cuadrado plani">
-		 	<h2>Gasolineras</h2>
+		<div class="cuadrado plani col-xs-3 col-md-12">
+		 	<a href="">Gasolineras</a>
 		</div>
-	</div>
-	<div class="col-md-3">
+	</div>	
+	
+	<div class="col-md-5 col-xs-12">
 		aqui va la imagen
 	</div>
 @stop

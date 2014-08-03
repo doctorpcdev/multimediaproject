@@ -61,7 +61,7 @@
 
           	<!-- Menu -->
         	<div class="degra">            
-	            <nav class="navbar navbar-default" role="navigation">
+	            <nav class="navbar navbar-default menumain" role="navigation">
 	              <!-- MENU MOVIL -->
 	              <div class="navbar-header">
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -75,20 +75,20 @@
 	              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav">
 	                  <li class="nica">
-	                    <h1><a href="">nicaragua</a></h1>
+	                    <a href="">nicaragua</a>	                    
 	                    <span><img src="img/guardabarranco.png"></span>
 	                  </li>
 	                  <li class="about">
-	                    <h1><a href="">departamento</a></h1>                    
+	                    <a href="">departamento</a>                   
 	                  </li>
 	                  <li class="explo">
-	                    <h1><a href="">Explorar</a></h1>                 
+	                    <a href="">Explorar</a>                
 	                  </li>
 	                  <li class="plani">
-	                    <h1><a href="">Acerca de</a></h1>                   
+	                    <a href="">Acerca de</a>                  
 	                  </li>
 	                  <li class="len">
-	                    <h1><a href="{{ URL::to('blog') }}">Blog</a></h1>                   
+	                    <a href="{{ URL::to('blog') }}">Blog</a>                   
 	                  </li>
 	                </ul>
 	              </div>
