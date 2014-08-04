@@ -107,6 +107,15 @@ nav
 						color #E0D561
 						content "\e601"
 
+				.estrellitaroja	
+					text-decoration none
+					cursor no-drop				
+
+					&:after
+						font-family "iconitos"
+						color gris_oscuro
+						content "\e601"	
+
 			.votos
 				float left
 
@@ -153,11 +162,13 @@ nav
 					text-decoration none
 
 				.titulo
-					color gris_oscuro
-					font-size 18px
-					font-style italic
-					margin 0
-					padding 0.5em 0.5em 0 0
+					a
+						color naranja
+						font-size 0.8em
+						font-style italic
+						margin 0
+						padding 0.5em 0.5em 0 0	
+						text-transform capitalize					
 
 
 			.imagen
@@ -204,12 +215,92 @@ footer
 	label
 		color naranja
 
+.showarticulo
+	.titul
+		border-bottom 3px solid azul
+		color azul
+		font-family titulmenu	
+		font-size 2.5em
+		margin-bottom 2em	
+		text-align center
+		text-transform uppercase
+
+	.descripcion
+		color naranja
+		font-size 1.5em
+		text-align justify	
+
+	.divider
+		border-top 3px solid azul
+		margin 2em 0em
+
+	.comentarios
+		form
+			label
+				font-size 1.3em
+				font-family subtitulslide
+			textarea 
+				height 100px
+				transition 0.5s all ease 
+				&:focus
+					height 150px
+						
+
+
+		h3
+			font-size 1em
+			font-weight bold	
+			width 100%
+			
+			&:after
+				content " ----------------------------------------------------- "
+		h4
+			margin 0px 0px 5px 0px
+			padding 0	
+		.comentario
+			border-bottom 3px solid gris_oscuro	
+			margin-bottom 20px
+
+	.noregister
+		background #ffc
+		border 2px dashed #dede88
+		color gris_texto
+		padding 12px
+		text-align center		
+		
+/*PERFIL*/
+
+.perfil	
+	#info
+		margin 1em
+	h2
+		margin 0
+		padding 0
+	p
+		padding 0
+		margin 0
+	.nombre
+		text-transform capitalize
+
+	.actualizarinfo
+		margin 1em
+
+		.alert
+			text-align center
+
+		form
+			margin-top 1em
+			
+					
+
+
 /*responsive*/
 
 @media screen and (min-width: 768px)	
 	.blogmunu		
 		h1
-			margin-left 11em
+			margin-left 4em
+			text-align center
 
 	.usuariomenu
 		a
@@ -219,9 +310,8 @@ footer
 	.posts 
 		.post
 			display inline-block !important
-			width 48%
 			vertical-align top
+			width 48%
 			&:nth-child(odd)
-				margin-right 2%									
-	
+				margin-right 2%			
 

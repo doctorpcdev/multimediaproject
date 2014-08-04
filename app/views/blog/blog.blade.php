@@ -13,7 +13,7 @@
 			</figure>
 			<div class="detalles">
 				<h2 class="titulo">
-						{{ $value->titulo }}
+					<a href="{{ URL::to('articulo/ver/'. $value->id .'') }}">{{ $value->titulo }}</a>
 				</h2>
 				<p class="autor">
 					<?php $user = User::find( $value->usuario_id) ?>
@@ -31,9 +31,15 @@
 			</div>
 			<div class="datos">
 				<a class="comentarios" href="{{ URL::to('articulo/ver/'. $value->id .'') }}">
-					10
+					<?php $count = Comentario::where('articulo_id', "=", $value->id)->count(); ?>
+					{{ $count }}
 				</a>
-				<a class="estrellita" href="#"></a>
+				@if(Auth::check())
+					<a class="estrellita" href="{{ URL::to('add/favorito/' . $value->id .'') }}"></a>
+				@else
+					<a class="estrellitaroja" href="#"></a>
+				@endif
+				
 			</div>
 		</div>
 	</article>	

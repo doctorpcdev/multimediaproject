@@ -20,7 +20,8 @@ class CreateUsuariosTable extends Migration {
 			$table->string('password');
 			$table->string('pregunta');
 			$table->string('remember_token');
-			$table->integer('role_id');			
+			$table->integer('role_id');	
+			$table->string('avatar');		
 			$table->timestamps();
 		});
 	}

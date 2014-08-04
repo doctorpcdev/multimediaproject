@@ -17,7 +17,7 @@ Route::get('/', function()
 });
 
 Route::get('blog', function(){
-	$articulos = Articulo::all();
+	$articulos = Articulo::orderBy('id', 'DESC')->get();
 	return View::make('blog.blog', array( 'articulos' => $articulos));
 });
 
@@ -35,6 +35,7 @@ Route::get('registrar', array('uses' => 'UsuariosController@viewRegister'));//mu
 Route::post('usuarios/validar', array('uses'=> 'UsuariosController@validateLogin'));// se valida en usuario
 Route::get('usuarios/logout', array('uses'=> 'UsuariosController@getLogout'));
 Route::get('usuarios/perfil/{id?}', array('uses' => 'UsuariosController@perfil'));
+Route::post('usuario/actualizar/{id?}', array('uses'=> 'UsuariosController@update'));//actualiza la informacion del usuario
 
 
 
@@ -44,6 +45,17 @@ Route::get('usuarios/perfil/{id?}', array('uses' => 'UsuariosController@perfil')
 Route::get('articulo/create', array('uses' => 'ArticulosController@create'));
 Route::post('articulo/guardar', array('uses' => 'ArticulosController@guardar'));
 Route::get('articulo/ver/{id?}', array('uses' => 'ArticulosController@show'));
+Route::post('articulo/editar/{id}', array('uses' => 'ArticulosController@edit'));//modifica el articulo
+Route::get('articulo/edit/{id}', array('uses' => 'ArticulosController@showedit'));//muestra form de articulo
+
+
+/*FAVORITOS*/
+
+Route::get('add/favorito/{id}', array('uses' => 'FavoritosController@add'));
+Route::get('del/favorito/{id}', array('uses' => 'FavoritosController@del'));
+
+//disabled
+
 
 
 /*COMENTARIOS*/

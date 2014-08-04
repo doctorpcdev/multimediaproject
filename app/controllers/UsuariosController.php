@@ -14,9 +14,8 @@ class UsuariosController extends BaseController {
 	 * @return [type]
 	 */
 	public function register(){
-		if(Input::get()){
-			$inputs = $this->getInputs(Input::all());
-			if($this->validateForms($inputs) === true){
+		if(Input::get()){			
+			if($this->validateForms(Input::all()) === true){
 				$user = new User();
 				$user->nombre = Input::get('nombre');
 				$user->email = Input::get('email');
@@ -29,7 +28,7 @@ class UsuariosController extends BaseController {
 					return Redirect::to('login');
 				}
 			}else{
-				return Redirect::to('registrar')->withErrors($this->validateForms($inputs))->withInput();
+				return Redirect::to('registrar')->withErrors($this->validateForms(Input::all()))->withInput();
 			}
 		}else{
 			return View::make('usuarios.login');
@@ -45,6 +44,30 @@ class UsuariosController extends BaseController {
 	}
 
 
+	public function update($id){
+		$user = User::find($id);
+
+		if(Input::get()){
+			if($this->validateFormsUp(Input::all()) ===  true){
+				$user->nombre = Input::get('nombre');
+				$user->email = Input::get('email');							
+				$user->password = Hash::make(Input::get('password'));
+				$user->pregunta = Input::get('respuesta');
+
+				if($user->save()){
+					Session::flash('message', 'Usuario Actualizado con exito');
+					return Redirect::back();
+				}
+			}else{
+				return Redirect::back()->withErrors($this->validateForms(Input::all()))->withInput();
+			}
+
+		}else{
+			return View::back();
+		}
+	}
+
+
 	/**
 	 * valida el login con el username y password
 	 * @return [type]
@@ -57,7 +80,7 @@ class UsuariosController extends BaseController {
 				);
 
 			if(Auth::attempt($userdata)){
-				return Redirect::to('/blog');
+				return Redirect::to('blog');
 			}else{
 				Session::flash('message', 'Error al iniciar session');
 				return Redirect::to('login');
@@ -73,31 +96,40 @@ class UsuariosController extends BaseController {
 	 */
 	public function getLogout(){
 		Auth::logout();
-		return Redirect::to('blog');
+		return Redirect::back();
 	}
 
 	public function perfil($id){
 		$usuario = User::find($id);
 		return View::make('usuarios.perfil')->with('usuario', $usuario);;
-	}
-
-	/**
-	 * obtiene los inputs 
-	 * @param  array  $inputs
-	 * @return [type]
-	 */
-	private function getInputs($inputs = array()){
-		foreach ($inputs as $key => $value) {
-			$inputs[$key] = $value;
-		}
-		return $inputs;
-	}
+	}	
 	
 
 	private function validateForms($inputs = array()){
 		$rules = array(
 			'nombre' => 'required|min:2',
 			'username' => 'unique:usuarios|required|min:4',			
+			'password' => 'confirmed|required|between:6,12',
+			'password_confirmation' => 'required|between:6,12',
+			'respuesta' => 'required',
+			'email' => 'required'
+			);
+		$message = array(
+			'required' => 'El campo :attribute es requerido',
+			'unique' => 'El :attribute ya esta en uso'
+			);
+		$validate = Validator::make($inputs, $rules, $message);
+
+		if($validate->fails()){
+			return $validate;
+		}else{
+			return true;
+		}
+	}
+
+	private function validateFormsUp($inputs = array()){
+		$rules = array(
+			'nombre' => 'required|min:2',				
 			'password' => 'confirmed|required|between:6,12',
 			'password_confirmation' => 'required|between:6,12',
 			'respuesta' => 'required',

@@ -1,1 +1,292 @@
-@font-face{font-family:'iconitos';src:url("../fonts/icomoon.ttf") format('truetype')}@font-face{font-family:titulslide;src:url("../fonts/GreatVibes-Regular.ttf")}@font-face{font-family:titulmenu;src:url("../fonts/Polo Brush.ttf")}@font-face{font-family:subtitulslide;src:url("../fonts/Adventure.ttf")}textarea{resize:none}.navbar-inverse{background-color:#444 !important;}.navbar-inverse a{background-color:transparent !important;color:#fff !important}.dropdown{font-family:subtitulslide;font-size:20px}.dropdown-menu a{color:#808080 !important;font-family:subtitulslide}body{background-color:#e8e8e8 !important;color:#444 !important;font-size:16px !important;margin:0;padding:0}header{background:#444;box-shadow:0 5px 0 rgba(0,0,0,0.2);color:#fff !important}nav img{height:100px}nav h1{font-family:titulslide}.blogmunu li a{margin:0 !important;padding:0 !important}.blogmunu h1{margin-left:25%}.usuariomenu .dropdown{margin-top:50px}.posts{padding:.5em;}.posts .post{background:#fff;border-radius:0 0 .5em .5em;box-shadow:2px 2px 10px rgba(0,0,0,0.5);color:#7a7a7a;margin-bottom:1em;}.posts .post .acciones{border-top:3px solid #22bce0;padding:.5em;overflow:hidden;}.posts .post .acciones .datos{float:right;}.posts .post .acciones .datos .comentarios{background:#444;border-radius:3px;color:#fff;margin:0 1em 0 0;padding:2px 5px;text-decoration:none}.posts .post .acciones .datos .estrellita{text-decoration:none;}.posts .post .acciones .datos .estrellita:after{font-family:"iconitos";color:#e0d561;content:"\e601"}.posts .post .acciones .votos{float:left;}.posts .post .acciones .votos .down,.posts .post .acciones .votos .up{text-decoration:none}.posts .post .acciones .votos .down{color:#f00;}.posts .post .acciones .votos .down:before{font-family:"iconitos";font-size:1.5em;content:"\e602";vertical-align:bottom}.posts .post .acciones .votos .up{color:#008000;}.posts .post .acciones .votos .up:before{font-family:"iconitos";font-size:1.5em;content:"\e603";vertical-align:bottom}.posts .post .descripcion{color:#7a7a7a;}.posts .post .descripcion .detalles{height:160px;margin-left:130px;}.posts .post .descripcion .detalles .autor{margin:.5em 0 2em 0}.posts .post .descripcion .detalles .fecha{float:right;margin:0 1em 0 0}.posts .post .descripcion .detalles .tag{background:#22bce0;border-radius:.5em;color:#fff;padding:.2em .5em;text-decoration:none}.posts .post .descripcion .detalles .titulo{color:#444;font-size:18px;font-style:italic;margin:0;padding:.5em .5em 0 0}.posts .post .descripcion .imagen{float:left;}.posts .post .descripcion .imagen img{height:160px;vertical-align:top;width:120px}footer{background:#dd4f24;color:rgba(255,255,255,0.5);padding:1em 0;text-align:center;width:100%;}footer h3{font-size:14px;font-weight:normal;}footer h3 strong{display:block}footer h3 .mejor:before,footer h3 .mejor:after{content:" - "}.articulo{background:url("../img/ramas.png");background-position:center;background-repeat:no-repeat;background-size:100%;height:40em;width:100%;}.articulo label{color:#dd4f24}@media screen and (min-width:768px){.blogmunu h1{margin-left:11em}.usuariomenu a:hover{color:#22bce0 !important}.posts .post{display:inline-block !important;width:48%;vertical-align:top;}.posts .post:nth-child(odd){margin-right:2%}}
+@font-face {
+  font-family: 'iconitos';
+  src: url("../fonts/icomoon.ttf") format('truetype');
+}
+@font-face {
+  font-family: titulslide;
+  src: url("../fonts/GreatVibes-Regular.ttf");
+}
+@font-face {
+  font-family: titulmenu;
+  src: url("../fonts/Polo Brush.ttf");
+}
+@font-face {
+  font-family: subtitulslide;
+  src: url("../fonts/Adventure.ttf");
+}
+textarea {
+  resize: none;
+}
+.navbar-inverse {
+  background-color: #444 !important;
+}
+.navbar-inverse a {
+  background-color: transparent !important;
+  color: #fff !important;
+}
+.dropdown {
+  font-family: subtitulslide;
+  font-size: 20px;
+}
+.dropdown-menu a {
+  color: #808080 !important;
+  font-family: subtitulslide;
+}
+body {
+  background-color: #e8e8e8 !important;
+  color: #444 !important;
+  font-size: 16px !important;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: #444;
+  box-shadow: 0 5px 0 rgba(0,0,0,0.2);
+  color: #fff !important;
+}
+nav img {
+  height: 100px;
+}
+nav h1 {
+  font-family: titulslide;
+}
+.blogmunu li a {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.blogmunu h1 {
+  margin-left: 25%;
+}
+.usuariomenu .dropdown {
+  margin-top: 50px;
+}
+/*Post*/
+.posts {
+  padding: 0.5em;
+}
+.posts .post {
+  background: #fff;
+  border-radius: 0 0 0.5em 0.5em;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+  color: #7a7a7a;
+  margin-bottom: 1em;
+}
+.posts .post .acciones {
+  border-top: 3px solid #22bce0;
+  padding: 0.5em;
+  overflow: hidden;
+}
+.posts .post .acciones .datos {
+  float: right;
+}
+.posts .post .acciones .datos .comentarios {
+  background: #444;
+  border-radius: 3px;
+  color: #fff;
+  margin: 0 1em 0 0;
+  padding: 2px 5px;
+  text-decoration: none;
+}
+.posts .post .acciones .datos .estrellita {
+  text-decoration: none;
+}
+.posts .post .acciones .datos .estrellita:after {
+  font-family: "iconitos";
+  color: #e0d561;
+  content: "\e601";
+}
+.posts .post .acciones .datos .estrellitaroja {
+  text-decoration: none;
+  cursor: no-drop;
+}
+.posts .post .acciones .datos .estrellitaroja:after {
+  font-family: "iconitos";
+  color: #444;
+  content: "\e601";
+}
+.posts .post .acciones .votos {
+  float: left;
+}
+.posts .post .acciones .votos .down,
+.posts .post .acciones .votos .up {
+  text-decoration: none;
+}
+.posts .post .acciones .votos .down {
+  color: #f00;
+}
+.posts .post .acciones .votos .down:before {
+  font-family: "iconitos";
+  font-size: 1.5em;
+  content: "\e602";
+  vertical-align: bottom;
+}
+.posts .post .acciones .votos .up {
+  color: #008000;
+}
+.posts .post .acciones .votos .up:before {
+  font-family: "iconitos";
+  font-size: 1.5em;
+  content: "\e603";
+  vertical-align: bottom;
+}
+.posts .post .descripcion {
+  color: #7a7a7a;
+}
+.posts .post .descripcion .detalles {
+  height: 160px;
+  margin-left: 130px;
+}
+.posts .post .descripcion .detalles .autor {
+  margin: 0.5em 0 2em 0;
+}
+.posts .post .descripcion .detalles .fecha {
+  float: right;
+  margin: 0 1em 0 0;
+}
+.posts .post .descripcion .detalles .tag {
+  background: #22bce0;
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+}
+.posts .post .descripcion .detalles .titulo a {
+  color: #dd4f24;
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 0;
+  padding: 0.5em 0.5em 0 0;
+  text-transform: capitalize;
+}
+.posts .post .descripcion .imagen {
+  float: left;
+}
+.posts .post .descripcion .imagen img {
+  height: 160px;
+  vertical-align: top;
+  width: 120px;
+}
+footer {
+  background: #dd4f24;
+  color: rgba(255,255,255,0.5);
+  padding: 1em 0;
+  text-align: center;
+  width: 100%;
+}
+footer h3 {
+  font-size: 14px;
+  font-weight: normal;
+}
+footer h3 strong {
+  display: block;
+}
+footer h3 .mejor:before,
+footer h3 .mejor:after {
+  content: " - ";
+}
+/*ARTICULOS*/
+.articulo {
+  background: url("../img/ramas.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 40em;
+  width: 100%;
+}
+.articulo label {
+  color: #dd4f24;
+}
+.showarticulo .titul {
+  border-bottom: 3px solid #22bce0;
+  color: #22bce0;
+  font-family: titulmenu;
+  font-size: 2.5em;
+  margin-bottom: 2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.showarticulo .descripcion {
+  color: #dd4f24;
+  font-size: 1.5em;
+  text-align: justify;
+}
+.showarticulo .divider {
+  border-top: 3px solid #22bce0;
+  margin: 2em 0em;
+}
+.showarticulo .comentarios form label {
+  font-size: 1.3em;
+  font-family: subtitulslide;
+}
+.showarticulo .comentarios form textarea {
+  height: 100px;
+  transition: 0.5s all ease;
+}
+.showarticulo .comentarios form textarea:focus {
+  height: 150px;
+}
+.showarticulo .comentarios h3 {
+  font-size: 1em;
+  font-weight: bold;
+  width: 100%;
+}
+.showarticulo .comentarios h3:after {
+  content: " ----------------------------------------------------- ";
+}
+.showarticulo .comentarios h4 {
+  margin: 0px 0px 5px 0px;
+  padding: 0;
+}
+.showarticulo .comentarios .comentario {
+  border-bottom: 3px solid #444;
+  margin-bottom: 20px;
+}
+.showarticulo .noregister {
+  background: #ffc;
+  border: 2px dashed #dede88;
+  color: #7a7a7a;
+  padding: 12px;
+  text-align: center;
+}
+/*PERFIL*/
+.perfil #info {
+  margin: 1em;
+}
+.perfil h2 {
+  margin: 0;
+  padding: 0;
+}
+.perfil p {
+  padding: 0;
+  margin: 0;
+}
+.perfil .nombre {
+  text-transform: capitalize;
+}
+.perfil .actualizarinfo {
+  margin: 1em;
+}
+.perfil .actualizarinfo .alert {
+  text-align: center;
+}
+.perfil .actualizarinfo form {
+  margin-top: 1em;
+}
+/*responsive*/
+@media screen and (min-width: 768px) {
+  .blogmunu h1 {
+    margin-left: 4em;
+    text-align: center;
+  }
+  .usuariomenu a:hover {
+    color: #22bce0 !important;
+  }
+  .posts .post {
+    display: inline-block !important;
+    vertical-align: top;
+    width: 48%;
+  }
+  .posts .post:nth-child(odd) {
+    margin-right: 2%;
+  }
+}

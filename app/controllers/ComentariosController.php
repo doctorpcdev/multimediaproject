@@ -17,7 +17,7 @@ class ComentariosController extends BaseController {
 
 				if($comentario->save()){
 					Session::flash('message', 'Comentario Agregado Con Exito');
-					return Redirect::to('blog');
+					return Redirect::back();
 				}
 
 			}else{
