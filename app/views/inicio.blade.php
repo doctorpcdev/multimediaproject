@@ -1,4 +1,4 @@
-@extends('templates.mainTemplate')
+@extends('templates.maintemplate')
 
 @section('slider')
 	<div class="item active">

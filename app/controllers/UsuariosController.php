@@ -16,14 +16,24 @@ class UsuariosController extends BaseController {
 	public function register(){
 		if(Input::get()){			
 			if($this->validateForms(Input::all()) === true){
+				$file = 'noImg.jpg';
 				$user = new User();
 				$user->nombre = Input::get('nombre');
 				$user->email = Input::get('email');
 				$user->username = Input::get('username');				
 				$user->password = Hash::make(Input::get('password'));
 				$user->pregunta = Input::get('respuesta');
+				$user->role_id = 1;			
+					
+			   if(Input::hasFile('archivo')) {
+			       	Input::file('archivo')->move('img', Input::file("archivo")->getClientOriginalName());
+			       	$file = Input::file("archivo")->getClientOriginalName();
+	     		}     		
+
+	     		$user->avatar = $file;
 
 				if($user->save()){
+					
 					Session::flash('message', 'Usuario Registrado con exito, ya puede ingresar');
 					return Redirect::to('login');
 				}

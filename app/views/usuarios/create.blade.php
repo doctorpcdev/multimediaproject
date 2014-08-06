@@ -38,7 +38,7 @@
 
 			{{ HTML::ul($errors->all(), array('class' =>'bg-danger')) }}
 
-			{{ Form::open(array('url' => 'usuarios/register', 'class' => 'form-horizontal')) }}
+			{{ Form::open(array('url' => 'usuarios/register', 'files' => true, 'class' => 'form-horizontal')) }}
 
 				<div class="form-group">
 					{{ Form::label('nombre', 'Nombre', array('class' => 'col-sm-4 control-label')) }}
@@ -85,6 +85,12 @@
 					{{ Form::label('respuesta', 'Respuesta Secreta', array('class' => 'col-sm-4 control-label')) }}
 					<div class="col-sm-7">
 						{{ Form::text('respuesta', Input::old('respuesta'), array('class' => 'form-control', 'placeholder'=> 'Respuesta Secreta')) }}	
+					</div>
+				</div>
+				<div class="form-group">
+					{{ Form::label('imagen', 'Seleccionar Avatar', array('class' => 'col-sm-4 control-label')) }}
+					<div class="col-sm-7">
+						{{ Form::file('archivo') }}
 					</div>
 				</div>
 				<div class="form-group">
