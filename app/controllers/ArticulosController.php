@@ -15,12 +15,16 @@ class ArticulosController extends BaseController {
 	 */
 	public function guardar(){
 		if(Input::get()){
-			if($this->validateForm(Input::all()) === true){
+			if($this->validateForm(Input::all()) === true){				
 				$articulo = new Articulo();
 				$articulo->titulo = Input::get('titulo');
 				$articulo->body = Input::get('cuerpo');
 				$articulo->tag = Input::get('tag');
 				$articulo->usuario_id = Input::get('user');	
+
+
+
+
 
 				if($articulo->save()){
 					Session::flash('message', 'Articulo Agregado Con Exito');
@@ -80,6 +84,20 @@ class ArticulosController extends BaseController {
 		}else{
 			return View::make('blog.blog');
 		}
+	}
+
+	/**
+	 * [delete description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function delete($id){
+		$articulo = Articulo::find($id);
+
+		$articulo->delete();
+
+		Session::flash('message', 'Articulo Eliminado');
+		return Redirect::back();
 	}
 
 	/**

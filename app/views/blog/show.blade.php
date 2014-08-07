@@ -31,12 +31,12 @@
 		<?php $comentarios = DB::table('comentarios')->where('articulo_id', '=', $articulo->id )->orderBy('id', 'DESC')->get(); ?>
 		@foreach($comentarios as $value)
 			<div class="comentario">
+				<?php $usuario = User::find($value->usuario_id) ?>
 				<div class="row">
 					<div class="col-md-2 col-xs-4">
-						<img src="{{ asset('img/foto.jpg') }}" class="avatar img-responsive">
+						<img src="{{ asset('img/'. $usuario->avatar .'') }}" class="avatar img-responsive">
 					</div>
-					<div class="col-md-6 col-xs-6">
-						<?php $usuario = User::find($value->usuario_id) ?>
+					<div class="col-md-6 col-xs-6">						
 						<h4 class"user"><a href="{{ URL::to('usuarios/perfil/'. $usuario->id .'') }}">{{ $usuario->username }}</a></h4>
 						<p> {{ $value->comentario }} </p>
 					</div>

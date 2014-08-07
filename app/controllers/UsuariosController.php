@@ -25,10 +25,22 @@ class UsuariosController extends BaseController {
 				$user->pregunta = Input::get('respuesta');
 				$user->role_id = 1;			
 					
-			   if(Input::hasFile('archivo')) {
+			  /* if(Input::hasFile('archivo')) {
 			       	Input::file('archivo')->move('img', Input::file("archivo")->getClientOriginalName());
 			       	$file = Input::file("archivo")->getClientOriginalName();
-	     		}     		
+	     		} */
+
+
+	     		
+	     			$file = Input::file("archivo")->getClientOriginalName(); 
+     	
+     				if(file_exists("img/" . $_FILES["archivo"]["name"])){
+     					$file = Input::file("archivo")->getClientOriginalName(); 	
+		     		}else{
+		     			move_uploaded_file($_FILES["archivo"]["tmp_name"], "img/" . $_FILES["archivo"]["name"]);
+		     		}
+	     		
+	     		
 
 	     		$user->avatar = $file;
 
@@ -122,7 +134,8 @@ class UsuariosController extends BaseController {
 			'password' => 'confirmed|required|between:6,12',
 			'password_confirmation' => 'required|between:6,12',
 			'respuesta' => 'required',
-			'email' => 'required'
+			'email' => 'required',
+			'archivo' => 'required'
 			);
 		$message = array(
 			'required' => 'El campo :attribute es requerido',

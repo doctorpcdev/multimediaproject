@@ -4,7 +4,8 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"fojuth/plupload": "dev-laravel-42"		
 	},
 	"autoload": {
 		"classmap": [
@@ -34,6 +35,6 @@
 	},
 	"minimum-stability": "stable",
 	"require-dev": {
-		"way/generators": "1.1"
+    	"way/generators": "2.*"
 	}
 }

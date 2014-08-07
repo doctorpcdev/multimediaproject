@@ -17,7 +17,7 @@
 				@endif
 			  	<div class="row">
 			  		<div class="col-md-2 col-xs-3">
-			  			<img src="{{ asset('img/foto.jpg') }}" class="img-responsive">
+			  			<img src="{{ asset('img/'. $usuario->avatar .'') }}" class="img-responsive">
 			  		</div>
 			  		<div class="col-md-7 col-xs-7">
 			  			<h2>{{ $usuario->username }}</h2>
@@ -157,7 +157,7 @@
 								<tr>
 									<?php $articulo = DB::table('articulos')->where('id', $value->articulo_id)->first(); ?>
 									<td><a href="{{ URL::to('articulo/ver/'. $articulo->id .'') }}">{{ $articulo->titulo }}</a></td>
-									<?php $count = Comentario::where('articulo_id', "=", $value->id)->count(); ?>
+									<?php $count = Comentario::where('articulo_id', "=", $value->articulo_id)->count(); ?>
 									<td>{{ $count}}</td>
 									<td>{{ $articulo->tag }}</td>
 									<td>{{ $articulo->created_at }}</td>

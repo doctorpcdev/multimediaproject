@@ -11,7 +11,7 @@
 	{{ Form::open(array('url' => '/articulo/guardar', 'files' => true, 'class' => 'form-horizontal')) }}
 		<div class="form-group">
 			{{ Form::label('titulo', 'Titulo', array('class' => 'col-sm-2 control-label')) }}
-			<div class="col-sm-6">
+			<div class="col-sm-8">
 				{{ Form::text('titulo', Input::old('titulo'), array('class' => 'form-control', 'placeholder'=> 'Titulo del articulo')) }}	
 			</div>
 		</div>
@@ -23,14 +23,14 @@
 		</div>
 		<div class="form-group">
 			{{ Form::label('tag', 'Tag', array('class' => 'col-sm-2 control-label')) }}
-			<div class="col-sm-6">
+			<div class="col-sm-8">
 				{{ Form::text('tag', Input::old('tag'), array('class' => 'form-control', 'placeholder'=> 'Tag')) }}	
 			</div>
 		</div>
 		<div class="form-group">
 			{{ Form::label('imagen', 'Agregar Imagen', array('class' => 'col-sm-2 control-label')) }}
-			<div class="col-sm-6">
-				{{ Form::file('archivo') }}
+			<div class="col-sm-8">
+				@plupload()
 			</div>
 		</div>
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}">
@@ -50,5 +50,7 @@
 	  horizontalOffset: 100,
 	  verticalOffset: 150
 	});
+
+	
 </script>
 @stop

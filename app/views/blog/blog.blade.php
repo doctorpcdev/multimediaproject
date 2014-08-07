@@ -7,9 +7,10 @@
 
 @foreach($articulos as $value)
 	<article class="post">
+		<?php $user = User::find( $value->usuario_id) ?>
 		<div class="descripcion">
 			<figure class="imagen">
-				<img src="{{ asset('img/foto.jpg') }}" />
+				<img src="{{ asset('img/'. $user->avatar .'') }}" />
 			</figure>
 			<div class="detalles">
 				<h2 class="titulo">
