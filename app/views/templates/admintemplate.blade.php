@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Admin Norwin</title>
 
     <!--PLUGIN -->
     {{ HTML::style('css/bootstrap/bootstrap.min.css') }}
@@ -43,6 +43,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{ URL::to('/') }}">Home</a>
+                <a class="navbar-brand" href="{{ URL::to('/blog') }}">Blog</a>
+                <a class="navbar-brand" href="#">Welcome {{ Auth::user()->username }} :D</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -83,7 +85,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">                        
                         <li>
-                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="{{ URL::to('usuarios/logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

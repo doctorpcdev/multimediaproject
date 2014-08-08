@@ -107,6 +107,9 @@ nav h1 {
 .posts .post .acciones .votos {
   float: left;
 }
+.posts .post .acciones .votos .likedesable {
+  cursor: no-drop;
+}
 .posts .post .acciones .votos .down,
 .posts .post .acciones .votos .up {
   text-decoration: none;
@@ -296,5 +299,6 @@ footer h3 .mejor:after {
   }
   .posts .post:nth-child(odd) {
     margin-right: 2%;
+    margin-left: 0.7%;
   }
 }

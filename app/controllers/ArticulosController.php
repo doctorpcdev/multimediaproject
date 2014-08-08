@@ -20,14 +20,11 @@ class ArticulosController extends BaseController {
 				$articulo->titulo = Input::get('titulo');
 				$articulo->body = Input::get('cuerpo');
 				$articulo->tag = Input::get('tag');
+				$articulo->enable = 0;
 				$articulo->usuario_id = Input::get('user');	
 
-
-
-
-
 				if($articulo->save()){
-					Session::flash('message', 'Articulo Agregado Con Exito');
+					Session::flash('message', 'Articulo Agregado Con Exito, Espere la aprobacion del administrador por favor :D');
 					return Redirect::to('blog');
 				}
 
@@ -101,6 +98,93 @@ class ArticulosController extends BaseController {
 	}
 
 	/**
+	 * [hab description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function hab($id){
+		$articulo = Articulo::find($id);
+
+		$articulo->enable = 1;
+
+		$articulo->save();
+
+		//Session::flash('message', 'Articulo Eliminado');
+		return Redirect::back();
+	}
+
+	/**
+	 * [des description]
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	public function des($id){
+		$articulo = Articulo::find($id);
+
+		$articulo->enable = 0;
+
+		$articulo->save();
+
+		//Session::flash('message', 'Articulo Eliminado');
+		return Redirect::back();
+	}
+
+	/**
+	 * [like description]
+	 * @param  [type] $articulo [description]
+	 * @param  [type] $usuario  [description]
+	 * @return [type]           [description]
+	 */
+	public function like($articulo, $usuario){
+
+		$voto = new Voto();
+		$voto->usuario_id = $usuario;
+		$voto->articulo_id = $articulo;
+		$voto->save();
+
+		$articulo = Articulo::find($articulo);
+		$articulo->votos = $articulo->votos + 1;
+		$articulo->save();
+
+		return Redirect::back();
+	}
+
+	/**
+	 * [dislike description]
+	 * @param  [type] $articulo [description]
+	 * @param  [type] $usuario  [description]
+	 * @return [type]           [description]
+	 */
+	public function dislike($articulo, $usuario){
+
+		$votos = Voto::where('usuario_id', '=', $usuario)->get();	
+
+        foreach ($votos as $value) {
+           if($value->articulo_id == $articulo){
+           		$value->delete();
+           }
+        }  
+
+		$articulo = Articulo::find($articulo);
+		$articulo->votos = $articulo->votos - 1;
+		$articulo->save();
+
+		return Redirect::back();
+	}
+
+	/**
+	 * [tag description]
+	 * @param  [type] $nombre [description]
+	 * @return [type]         [description]
+	 */
+	public function tag($nombre){
+
+		$articulos = Articulo::where('tag', $nombre)->get();
+
+		return View::make('blog.tag')->with('articulos', $articulos);
+	}
+
+	/**
 	 * [validateForm description]
 	 * @param  array  $inputs [description]
 	 * @return [type]         [description]
@@ -126,6 +210,11 @@ class ArticulosController extends BaseController {
 		}
 	}
 
+	/**
+	 * [validateFormUp description]
+	 * @param  array  $inputs [description]
+	 * @return [type]         [description]
+	 */
 	private function validateFormUp($inputs = array()){
 		$rules = array(
 			'titulo' => 'required',

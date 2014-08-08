@@ -17,7 +17,7 @@ Route::get('/', function()
 });
 
 Route::get('blog', function(){
-	$articulos = Articulo::orderBy('id', 'DESC')->get();
+	$articulos = Articulo::where('enable',1)->orderBy('id', 'DESC')->paginate(6);
 	return View::make('blog.blog', array( 'articulos' => $articulos));
 });
 
@@ -49,6 +49,16 @@ Route::post('articulo/editar/{id}', array('uses' => 'ArticulosController@edit'))
 Route::get('articulo/edit/{id}', array('uses' => 'ArticulosController@showedit'));//muestra form de articulo
 Route::get('articulo/del/{id}', array('uses' => 'ArticulosController@delete'));
 
+Route::get('articulo/hab/{id}', array('uses' => 'ArticulosController@hab'));
+Route::get('articulo/des/{id}', array('uses' => 'ArticulosController@des'));
+
+Route::get('articulo/tag/{nombre}', array('uses' => 'ArticulosController@tag'));
+
+
+Route::get('articulo/like/{articulo}/{usuario}', array('uses' => 'ArticulosController@like'));
+Route::get('articulo/dislike/{articulo}/{usuario}', array('uses' => 'ArticulosController@dislike'));
+
+
 
 /*FAVORITOS*/
 
@@ -64,51 +74,56 @@ Route::post('comentario/guardar', array('uses' => 'ComentariosController@guardar
 
 /*ADMIN*/
 
-Route::get('administrador', function(){
-	return View::make('admin');
+
+Route::group(array('before' => 'auth'), function()
+{
+	Route::get('administrador',array("before" => "roles:0,login", function(){
+		return View::make('admin');
+	}));	
+
+	Route::get('administrador/Articulos', function(){
+		$articulos = Articulo::all();
+		return View::make('administrador.articulosadmin')->with('articulos', $articulos);
+	});
+
+	Route::get('administrador/anuncios/Jinotega', function(){
+		$anuncios = Anuncio::where('departamento', '=', 'Jinotega')->get();
+		return View::make('administrador.jinotega')->with('anuncios', $anuncios);
+	});
+	Route::get('administrador/anuncios/Matagalpa', function(){
+		$anuncios = Anuncio::where('departamento', '=', 'Matagalpa')->get();
+		return View::make('administrador.matagalpa')->with('anuncios', $anuncios);
+	});
+	Route::get('administrador/anuncios/Carazo', function(){
+		$anuncios = Anuncio::where('departamento', '=', 'Carazo')->get();
+		return View::make('administrador.carazo')->with('anuncios', $anuncios);
+	});
+	Route::get('administrador/anuncios/Esteli', function(){
+		$anuncios = Anuncio::where('departamento', '=', 'Esteli')->get();
+		return View::make('administrador.esteli')->with('anuncios', $anuncios);
+	});
+
+
+	Route::post('administrador/usuarios/register', array('uses' => 'UsuariosController@registeradmin'));// se registra el usuario en la BD
+
+
+	Route::post('administrador/anuncios/create', array('uses' => 'AnunciosController@add'));//agrego el articulo
+	Route::get('administrador/anuncio/edit/{id}', array('uses' => 'AnunciosController@viewedit'));
+	Route::post('administrador/anuncio/edit/{id}', array('uses' => 'AnunciosController@update'));//modifico el articulo
+	Route::get('administrador/anuncio/del/{id}', array('uses' => 'AnunciosController@delete'));
+
+
+	Route::get('administrador/Festividades', function(){
+		$festividades = Festividad::all();
+		return View::make('administrador.festividadesadmin')->with('festividades', $festividades);
+	});
+	Route::get('administrador/Usuarios', function(){
+		$usuarios = User::all();
+		//$usuarios = User::where('role_id', '=', 1)->get();	
+		return View::make('administrador.usuariosadmin')->with('usuarios', $usuarios);
+	});
+	
+	/*festividad*/
+
+	Route::post('administrador/festividad/edit/{id}', array('uses' => 'FestividadesController@update'));//modifico el articulo
 });
-Route::get('administrador/Articulos', function(){
-	$articulos = Articulo::all();
-	return View::make('administrador.articulosadmin')->with('articulos', $articulos);
-});
-
-
-
-Route::get('administrador/anuncios/Jinotega', function(){
-	$anuncios = Anuncio::where('departamento', '=', 'Jinotega')->get();
-	return View::make('administrador.jinotega')->with('anuncios', $anuncios);
-});
-Route::get('administrador/anuncios/Matagalpa', function(){
-	$anuncios = Anuncio::where('departamento', '=', 'Matagalpa')->get();
-	return View::make('administrador.matagalpa')->with('anuncios', $anuncios);
-});
-Route::get('administrador/anuncios/Carazo', function(){
-	$anuncios = Anuncio::where('departamento', '=', 'Carazo')->get();
-	return View::make('administrador.carazo')->with('anuncios', $anuncios);
-});
-Route::get('administrador/anuncios/Esteli', function(){
-	$anuncios = Anuncio::where('departamento', '=', 'Esteli')->get();
-	return View::make('administrador.esteli')->with('anuncios', $anuncios);
-});
-
-
-Route::post('administrador/anuncios/create', array('uses' => 'AnunciosController@add'));//agrego el articulo
-Route::get('administrador/anuncio/edit/{id}', array('uses' => 'AnunciosController@viewedit'));
-Route::post('administrador/anuncio/edit/{id}', array('uses' => 'AnunciosController@update'));//modifico el articulo
-Route::get('administrador/anuncio/del/{id}', array('uses' => 'AnunciosController@delete'));
-
-
-Route::get('administrador/Festividades', function(){
-	$festividades = Festividad::all();
-	return View::make('administrador.festividadesadmin')->with('festividades', $festividades);
-});
-Route::get('administrador/Usuarios', function(){
-	$usuarios = User::where('role_id', '=', 1)->get();	
-	return View::make('administrador.usuariosadmin')->with('usuarios', $usuarios);
-});
-
-
-
-/*festividad*/
-
-Route::post('administrador/festividad/edit/{id}', array('uses' => 'FestividadesController@update'));//modifico el articulo

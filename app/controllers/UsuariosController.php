@@ -57,6 +57,50 @@ class UsuariosController extends BaseController {
 		}
 	}
 
+	public function registeradmin(){
+		if(Input::get()){			
+			if($this->validateForms(Input::all()) === true){
+				$file = 'noImg.jpg';
+				$user = new User();
+				$user->nombre = Input::get('nombre');
+				$user->email = Input::get('email');
+				$user->username = Input::get('username');				
+				$user->password = Hash::make(Input::get('password'));
+				$user->pregunta = Input::get('respuesta');
+				$user->role_id = Input::get('rol');			
+					
+			  /* if(Input::hasFile('archivo')) {
+			       	Input::file('archivo')->move('img', Input::file("archivo")->getClientOriginalName());
+			       	$file = Input::file("archivo")->getClientOriginalName();
+	     		} */
+
+
+	     		
+	     			$file = Input::file("archivo")->getClientOriginalName(); 
+     	
+     				if(file_exists("img/" . $_FILES["archivo"]["name"])){
+     					$file = Input::file("archivo")->getClientOriginalName(); 	
+		     		}else{
+		     			move_uploaded_file($_FILES["archivo"]["tmp_name"], "img/" . $_FILES["archivo"]["name"]);
+		     		}
+	     		
+	     		
+
+	     		$user->avatar = $file;
+
+				if($user->save()){
+					
+					Session::flash('message', 'Usuario Registrado con exito');
+					return Redirect::back();
+				}
+			}else{
+				return Redirect::back()->withErrors($this->validateForms(Input::all()))->withInput();
+			}
+		}else{
+			return View::make('usuarios.login');
+		}
+	}
+
 	/**
 	 * muestra el formulario de registro de usuario
 	 * @return [type]
@@ -102,7 +146,12 @@ class UsuariosController extends BaseController {
 				);
 
 			if(Auth::attempt($userdata)){
-				return Redirect::to('blog');
+				if(Auth::user()->role_id == 1){
+					return Redirect::to('blog');
+				}else{
+					return Redirect::to('administrador');
+				}
+				
 			}else{
 				Session::flash('message', 'Error al iniciar session');
 				return Redirect::to('login');

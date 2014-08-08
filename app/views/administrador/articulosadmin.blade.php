@@ -16,7 +16,8 @@
 					<td>Titulo</td>
 					<td>Comentarios</td>
 					<td>Autor</td>
-					<td>Fecha</td>						
+					<td>Fecha</td>
+					<td>Estado</td>						
 					<td>Borrar</td>															
 				</tr>
 			</thead>
@@ -29,6 +30,13 @@
 						<?php $usuario = DB::table('usuarios')->where('id', $value->usuario_id)->first(); ?>
 						<td><a href="{{ URL::to('usuarios/perfil/'. $usuario->id .'') }}">{{ $usuario->username }}</a></td>
 						<td>{{ $value->created_at }}</td>
+						<td>
+							@if($value->enable == 1){{-- habilitado --}}
+								<a href="{{ URL::to('articulo/des/' . $value->id) }}" class="btn btn-small btn-default">Desabilitar</a>
+							@else
+								<a href="{{ URL::to('articulo/hab/' . $value->id) }}" class="btn btn-small btn-success">Habilitar</a>
+							@endif
+						</td>
 						<td>
 							<a href="{{ URL::to('articulo/del/' . $value->id) }}" class="btn btn-small btn-warning">Borrar articulo</a>
 						</td>

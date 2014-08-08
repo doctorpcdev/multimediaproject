@@ -20,15 +20,28 @@
 					<?php $user = User::find( $value->usuario_id) ?>
 					por <a href="{{ URL::to('usuarios/perfil/'. $user->id .'') }}"> {{ $user->username }} </a>
 				</p>
-				<a class="tag" href="#">{{ $value-> tag}}</a>
+				<a class="tag" href="{{ URL::to('articulo/tag/'. $value->tag .'') }}">{{ $value-> tag}}</a>
 				<p class="fecha">hace <strong>20</strong> min</p>
 			</div>
 		</div>
 		<div class="acciones">
 			<div class="votos">
-				<a class="up" href="#"></a>
-				<span class="total">{{ $value->votos}}</span>
-				<a class="down" href="#"></a>
+			@if(Auth::check())
+				<?php $votos = Voto::where('usuario_id', Auth::user()->id)->get() ?>
+				@if($votos->count() >= 0)					
+					<a class="up" href="{{ URL::to('articulo/like/'. $value->id . '/' . $user->id .'') }}"></a>
+					<span class="total">{{ $value->votos}}</span>				
+					<a class="down" href="{{ URL::to('articulo/dislike/'. $value->id . '/' . $user->id .'') }}"></a>									
+				@else
+					@foreach($votos as $like)
+						@if($like->articulo_id == $value->id)
+							<a class="up likedesable" href="#"></a>
+							<span class="total">{{ $value->votos}}</span>				
+							<a class="down" href="{{ URL::to('articulo/dislike/'. $value->id . '/' . $user->id .'') }}"></a>
+						@endif	
+					@endforeach						
+				@endif
+			@endif	
 			</div>
 			<div class="datos">
 				<a class="comentarios" href="{{ URL::to('articulo/ver/'. $value->id .'') }}">
@@ -44,7 +57,8 @@
 			</div>
 		</div>
 	</article>	
-@endforeach		
+@endforeach	
+{{	$articulos->links()	}}
 @stop
 
 
