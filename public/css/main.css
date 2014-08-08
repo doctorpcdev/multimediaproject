@@ -240,6 +240,9 @@ body {
   font-size: 1.5em;
   text-align: center;
 }
+.clima {
+  overflow: hidden;
+}
 .clima img {
   margin-top: 20px;
   width: 100%;
@@ -285,6 +288,51 @@ footer {
 }
 .infodep .centermod p {
   text-align: justify;
+}
+/*ACERCA DE*/
+.desarrolladores {
+  margin-bottom: 20px;
+  margin-top: 1em;
+}
+.desarrolladores .info {
+  text-align: center;
+  padding: 8px;
+}
+.desarrolladores .info img {
+  height: 150px;
+  margin: 0 auto;
+}
+.desarrolladores .info a {
+  padding: 0px 10px;
+}
+.desarrolladores .yo {
+  margin-top: 5px;
+  font-size: 1.3em;
+  color: #1ddfb3;
+}
+.desarrolladores p {
+  font-size: 1.3em;
+}
+.desarrolladores .social a {
+  display: inline-block;
+}
+.desarrolladores .social a img {
+  border-radius: 50%;
+  height: 40px;
+}
+.contacto {
+  margin: 1em;
+}
+.contacto .titul {
+  padding-top: 1em;
+  text-align: center;
+  font-family: titulslide;
+  border-bottom: 2px solid #808080;
+  width: 80%;
+  margin: 0 auto;
+}
+.contacto form {
+  padding-top: 1em;
 }
 /*  RESPONSIVE*/
 @media screen and (min-width: 768px) {

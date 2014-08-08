@@ -51,8 +51,13 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i>  
-                    </a>                    
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a> 
+                    <ul class="dropdown-menu dropdown-tasks">
+                     <li>
+                        <a href=" {{ URL::to('administrador/Mensajes') }}">Leer</a>
+                     </li>
+                    </ul>                   
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">

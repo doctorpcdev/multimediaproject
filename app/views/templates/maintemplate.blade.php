@@ -91,7 +91,7 @@
 	                    <a href="">Explorar</a>                
 	                  </li>
 	                  <li class="plani">
-	                    <a href="">Acerca de</a>                  
+	                    <a href="{{ URL::to('AcercaDe') }}">Acerca de</a>                  
 	                  </li>
 	                  <li class="len">
 	                    <a href="{{ URL::to('blog') }}">Blog</a>                   

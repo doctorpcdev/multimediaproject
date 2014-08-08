@@ -33,7 +33,9 @@
 				{{ Form::file('archivo') }}
 			</div>
 		</div>
+			@if(Auth::check())
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}">
+			@endif
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 				{{ Form::submit('Agregar Articulo' , array('class'=> 'btn btn-success')) }}

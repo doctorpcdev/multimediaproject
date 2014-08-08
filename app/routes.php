@@ -20,6 +20,9 @@ Route::get('blog', function(){
 	$articulos = Articulo::where('enable',1)->orderBy('id', 'DESC')->paginate(6);
 	return View::make('blog.blog', array( 'articulos' => $articulos));
 });
+Route::get('AcercaDe', function(){
+	return View::make('informacion.acercade');
+});
 
 Route::get('jinotega', function(){
 	return View::make('departamentos.jinotega');
@@ -75,6 +78,11 @@ Route::get('del/favorito/{id}', array('uses' => 'FavoritosController@del'));
 Route::post('comentario/guardar', array('uses' => 'ComentariosController@guardar'));
 Route::get('del/comentario/{id}', array('uses' => 'ComentariosController@del'));
 
+
+/*contacto*/
+
+Route::post('contacto/send', array('uses' => 'MensajesController@send'));
+
 /*ADMIN*/
 
 
@@ -82,12 +90,20 @@ Route::group(array('before' => 'auth'), function()
 {
 	Route::get('administrador',array("before" => "roles:0,login", function(){
 		return View::make('admin');
-	}));	
+	}));
 
 	Route::get('administrador/Articulos', function(){
 		$articulos = Articulo::all();
 		return View::make('administrador.articulosadmin')->with('articulos', $articulos);
 	});
+
+	Route::get('administrador/Mensajes', function(){
+		$mensajes = Mensaje::all();
+		return View::make('administrador.mensajes')->with('mensajes', $mensajes);
+	});
+
+	Route::get('administrador/Mensajes/{id}', array('uses' => 'MensajesController@show'));
+	Route::post('administrador/Mensajes/{id}', array('uses' => 'MensajesController@sendEmail'));
 
 	Route::get('administrador/anuncios/Jinotega', function(){
 		$anuncios = Anuncio::where('departamento', '=', 'Jinotega')->get();

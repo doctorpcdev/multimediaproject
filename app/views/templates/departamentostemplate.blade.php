@@ -101,7 +101,7 @@
                         <a href="">Explorar</a>                
                       </li>
                       <li class="plani">
-                        <a href="">Acerca de</a>                  
+                        <a href=" {{ URL::to('AcercaDe') }}">Acerca de</a>                  
                       </li>
                       <li class="len">
                         <a href="{{ URL::to('blog') }}">Blog</a>                   
@@ -126,36 +126,16 @@
                 <!--informacion central -->
                 <div class="col-md-9 centermod">
                     <div class="row">
-                        <article class="col-md-9 degrawhite infocenter">               
-                            <div>
-                                <h1 class="titul">Historia</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>   
-                            <div>
-                                <h1 class="titul">Cultura</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            </div>                   
+                        <article class="col-md-9 degrawhite infocenter">
+                          @yield('infodepto')               
+                                             
                         </article>
 
 
                         <!-- informacion derecha -->
                         <article class="col-md-3 anuncios">
-                            <div class="anunciostitul">
-                                <h2>Necesitas Ayuda?</h2>             
-                            </div>
-                            <div class="row">
-                                @yield('anuncios')                              
-                            </div>
+                         @yield('anuncios') 
+                            
                         </article>
                         <!-- end informacion derecha -->
                     </div>
@@ -172,6 +152,8 @@
             <!-- end row -->
        </section>
        <!--end infromacion -->  
+
+       @yield('otrainfo')
 
 
 
