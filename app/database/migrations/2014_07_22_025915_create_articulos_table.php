@@ -18,6 +18,7 @@ class CreateArticulosTable extends Migration {
 			$table->string('body');			
 			$table->integer('votos');
 			$table->string('tag');
+			$table->string('ruta');
 			$table->boolean('enable');
 			$table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('usuarios');

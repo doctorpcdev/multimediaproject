@@ -30,7 +30,7 @@
 		<div class="form-group">
 			{{ Form::label('imagen', 'Agregar Imagen', array('class' => 'col-sm-2 control-label')) }}
 			<div class="col-sm-8">
-				@plupload()
+				{{ Form::file('archivo') }}
 			</div>
 		</div>
 			<input name="user" type="hidden" value="{{ Auth::user()->id }}">

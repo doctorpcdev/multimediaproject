@@ -60,6 +60,8 @@ Route::get('articulo/dislike/{articulo}/{usuario}', array('uses' => 'ArticulosCo
 
 
 
+
+
 /*FAVORITOS*/
 
 Route::get('add/favorito/{id}', array('uses' => 'FavoritosController@add'));
@@ -71,6 +73,7 @@ Route::get('del/favorito/{id}', array('uses' => 'FavoritosController@del'));
 
 /*COMENTARIOS*/
 Route::post('comentario/guardar', array('uses' => 'ComentariosController@guardar'));
+Route::get('del/comentario/{id}', array('uses' => 'ComentariosController@del'));
 
 /*ADMIN*/
 

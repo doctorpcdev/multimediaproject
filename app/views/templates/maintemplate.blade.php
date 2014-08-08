@@ -131,7 +131,7 @@
 				<div class="col-md-9 centermod">
 					<div class="row">
 						<article class="col-md-9 degrawhite infocenter" style="padding: 10px">               
-	                		<div class="clima">
+	                		<div class="clima" style="overflow:hidden">
 	                			@yield('clima')	                    		
 	                  		</div>                  
 	               		</article>

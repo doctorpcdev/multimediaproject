@@ -13,6 +13,7 @@
 		{{ HTML::style('css/blog.css') }}
           <!--PLUGIN -->
 		{{ HTML::style('css/bootstrap/bootstrap.min.css') }}
+		{{ HTML::style('font-awesome-4.1.0/css/font-awesome.min.css') }}   
 
 </head>
 <body>

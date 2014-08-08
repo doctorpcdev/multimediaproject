@@ -4,6 +4,12 @@
 <div class="container showarticulo">
 	<h2 class="titul">{{ $articulo->titulo }}</h2> 
 	<p class="descripcion">{{ $articulo->body }}</p> 
+	<div class="row">
+  		<div class="col-md-6 col-md-offset-3">
+			<img src="{{ asset('img/'. $articulo->ruta  .'') }}" class="img-responsive">
+  		</div>
+	</div>		
+	
 	<div class="divider"></div>
 	
 	<div class="comentarios">
@@ -40,7 +46,15 @@
 						<h4 class"user"><a href="{{ URL::to('usuarios/perfil/'. $usuario->id .'') }}">{{ $usuario->username }}</a></h4>
 						<p> {{ $value->comentario }} </p>
 					</div>
-				</div>		
+				</div>
+				@if(Auth::check())
+					@if($value->usuario_id == Auth::user()->id)
+						<a href="{{ URL::to('del/comentario/'. $value->id . '') }}" class="borrar"><i class="fa fa-times"></i></a>
+					@endif					
+					@if(Auth::user()->role_id == 0)	
+						<a href="{{ URL::to('del/comentario/'. $value->id . '') }}" class="borrar"><i class="fa fa-times"></i></a>	
+					@endif
+				@endif
 			</div>	
 		@endforeach	
 		@if(Auth::check())
@@ -50,7 +64,6 @@
 				<p>Registrate <a href="{{ URL::to('registrar') }}">AQUI</a> y podras hacerlo :D </p>
 			</div>
 		@endif
-	</div>
-	
+	</div>	
 </div>
 @stop

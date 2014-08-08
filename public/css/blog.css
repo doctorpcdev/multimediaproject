@@ -249,8 +249,14 @@ footer h3 .mejor:after {
   padding: 0;
 }
 .showarticulo .comentarios .comentario {
+  position: relative;
   border-bottom: 3px solid #444;
   margin-bottom: 20px;
+}
+.showarticulo .comentarios .comentario .borrar {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .showarticulo .noregister {
   background: #ffc;

@@ -15,13 +15,25 @@ class ArticulosController extends BaseController {
 	 */
 	public function guardar(){
 		if(Input::get()){
-			if($this->validateForm(Input::all()) === true){				
+			if($this->validateForm(Input::all()) === true){		
+				$file = 'noImg.jpg';		
 				$articulo = new Articulo();
 				$articulo->titulo = Input::get('titulo');
 				$articulo->body = Input::get('cuerpo');
 				$articulo->tag = Input::get('tag');
 				$articulo->enable = 0;
 				$articulo->usuario_id = Input::get('user');	
+
+
+					$file = Input::file("archivo")->getClientOriginalName(); 
+     	
+     				if(file_exists("img/" . $_FILES["archivo"]["name"])){
+     					$file = Input::file("archivo")->getClientOriginalName(); 	
+		     		}else{
+		     			move_uploaded_file($_FILES["archivo"]["tmp_name"], "img/" . $_FILES["archivo"]["name"]);
+		     		}
+		     	$articulo->ruta = $file;	
+	     		
 
 				if($articulo->save()){
 					Session::flash('message', 'Articulo Agregado Con Exito, Espere la aprobacion del administrador por favor :D');
@@ -65,15 +77,28 @@ class ArticulosController extends BaseController {
 	public function edit($id){
 		if(Input::get()){
 			$articulo = Articulo::find($id);
-			if($this->validateFormUp(Input::all()) === true){				
-					$articulo->titulo = Input::get('titulo');
-					$articulo->body = Input::get('cuerpo');
-					$articulo->tag = Input::get('tag');
-					
-					if($articulo->save()){
-						Session::flash('message', 'Articulo Modificado con Exito');
-						return Redirect::back();
-					}
+			if($this->validateFormUp(Input::all()) === true){	
+				$file = 'noImg.jpg';				
+				$articulo->titulo = Input::get('titulo');
+				$articulo->body = Input::get('cuerpo');
+				$articulo->tag = Input::get('tag');
+
+
+
+				$file = Input::file("archivo")->getClientOriginalName(); 
+ 	
+ 				if(file_exists("img/" . $_FILES["archivo"]["name"])){
+ 					$file = Input::file("archivo")->getClientOriginalName(); 	
+	     		}else{
+	     			move_uploaded_file($_FILES["archivo"]["tmp_name"], "img/" . $_FILES["archivo"]["name"]);
+	     		}
+	     		$articulo->ruta = $file;	
+     			
+				
+				if($articulo->save()){
+					Session::flash('message', 'Articulo Modificado con Exito');
+					return Redirect::back();
+				}
 
 			}else{
 				return Redirect::back()->withErrors($this->validateForm(Input::all()))->withInput();

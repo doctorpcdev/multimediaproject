@@ -28,6 +28,19 @@ class ComentariosController extends BaseController {
 		}
 	}
 
+	public function del($id){
+
+		$comentario = Comentario::find($id);
+
+		$comentario->delete();
+
+		return Redirect::back();
+	}
+
+	/**
+	 * [ValidateForm description]
+	 * @param array $inputs [description]
+	 */
 	private function ValidateForm($inputs = array()){
 		$rules = array(
 			'comentario' => 'required'

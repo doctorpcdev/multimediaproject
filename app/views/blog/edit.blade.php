@@ -38,7 +38,7 @@
 						<div class="col-sm-offset-2 col-sm-10">
 							{{ Form::submit('Modificar Articulo' , array('class'=> 'btn btn-success')) }}
 						</div>	
-					</div>
+					</div>					
 				{{ Form::close() }}
 			@else
 				<h2>No tiene permiso para editar este articulo</h2>	
@@ -57,3 +57,5 @@
 	});
 </script>
 @stop
+
+
